@@ -25,12 +25,27 @@ red = 0
 green = 0
 blue = 0
 white = 0
+cycle = 0
+
+
 
 midi_input.on 'message' , (deltaTime, message) =>
 
 	console.log 'm:' + message + ' d:' + deltaTime
-	
+
 	if message[0] is 176
+
+		# toggle using the cycle key
+		if message[1] is 46
+			if message[2] is 127
+				if cycle
+					midi_out.sendMessage [176,46,0]
+					cycle = 0
+				else
+					midi_out.sendMessage [176,46,127]
+					cycle = 1
+
+		#  sliders 1 to 4
 		if message[1] is 0
 			red = message[2]
 		if message[1] is 1
@@ -58,4 +73,7 @@ midi_input.on 'message' , (deltaTime, message) =>
 			midi_out.sendMessage [176,64+num,127]
 		else
 			midi_out.sendMessage [176,64+num,0]
-
+	
+	
+	
+	
