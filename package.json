@@ -1,0 +1,21 @@
+{ "name": "hqLightControl"
+, "version": "0.0.1"
+, "main": "./hqLightControl.js"
+, "description": "light control for the c3d2 hq using a korg nanokontrol"
+, "author": { "name": "sebseb7"
+  	    , "email": "seb@exse.net"
+ 	    , "web": "http://ddfpv.de/"
+ 	    }
+, "dependencies": { "bufferstream": ">=0.5.1","midi": ">= 0.6.0" ,"coffee-script": ">= 1.2.0"}
+, "repositories": [{ "type": "git"
+		   , "path": "https://github.com/sebseb7/hqLightControl.git"
+		   }]
+, "homepage": "https://github.com/sebseb7/hqLightControl"
+, "bugs": "https://github.com/sebseb7/hqLightControl/issues"
+, "maintainers": [{ "name": "sebseb7"
+		  , "email": "seb@exse.net"
+		  , "web": "http://ddfpv.de/"
+		 }]
+, "licenses": [{ "type": "APL" }]
+, "engines": { "node": ">=0.8.0" }
+}
