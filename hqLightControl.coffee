@@ -11,6 +11,12 @@ midi_out = new midi.output
 midi_out.openPort 0
 
 
+#initialize all leds
+
+for num in [32..39].concat([48..55]).concat([64..71]).concat([41..46])
+	midi_out.sendMessage [176,num,0]
+	
+
 output = new ceiling.Output 'bender', 1341
 output2 = new ceiling.Output 'bender', 1340
 
@@ -37,7 +43,7 @@ midi_input.on 'message' , (deltaTime, message) =>
 
 		# toggle using the cycle key
 		if message[1] is 46
-			if message[2] is 127
+			if message[2] is 0
 				if cycle
 					midi_out.sendMessage [176,46,0]
 					cycle = 0
