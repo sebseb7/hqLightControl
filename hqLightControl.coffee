@@ -42,4 +42,20 @@ midi_input.on 'message' , (deltaTime, message) =>
 
 	output.putCeiling 0,red*2,green*2,blue*2,white*2
 	output2.setPixel 0xff,0xff,red*2,green*2,blue*2
+	
+	for num in [0..7]
+		if red > num*18
+			midi_out.sendMessage [176,32+num,127]
+		else
+			midi_out.sendMessage [176,32+num,0]
+		
+		if green > num*18
+			midi_out.sendMessage [176,48+num,127]
+		else
+			midi_out.sendMessage [176,48+num,0]
+		
+		if blue > num*18
+			midi_out.sendMessage [176,64+num,127]
+		else
+			midi_out.sendMessage [176,64+num,0]
 
